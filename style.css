@@ -32,6 +32,7 @@
   --navbar-hover: #8b6f47; /* Dorado cálido */
   --navbar-texto: #4a3829; /* Marrón oscuro */
   --navbar-active-background: #4a3829; /* Marrón oscuro */
+  --navbar-background-blur: #4a382973;
   --navbar-active-texto: #f5ede3; /* Beige claro */
   --navbar-active-hover: #c4a57b; /* Dorado suave */
 
@@ -116,7 +117,7 @@ body {
 }
 
 .navbar.active {
-  background-color: #4b3a2f;
+  background-color: var( --navbar-active-background);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -134,6 +135,38 @@ body {
 
 .navbar.active h1 {
   font-size: 3rem;
+}
+
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 1000;
+  background-color: var(--navbar-background-blur);
+  backdrop-filter: blur(1rem);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  list-style: none;
+  gap: 2rem;
+  font-size: 2rem;
+}
+
+.sidebar li {
+  width: 100%
+}
+
+.sidebar a {
+  width: 100%;
+  text-decoration: none;
+  color: var(--navbar-active-texto);
+  transition: all 0.3s ease-in-out;
 }
 
 /* .hero {
@@ -270,6 +303,15 @@ body {
 .menu-icon:hover {
   opacity: 1;
 }
+
+
+
+.menu-button {
+  display: none;
+}
+
+
+
 
 .block {
   animation: appear linear;
@@ -506,6 +548,24 @@ body {
   opacity: 1;
   transform: translate(-50%, 50%);
 } */
+
+@media(max-width: 800px) {
+  .hideOnMobile {
+    display: none;
+  }
+  .menu-button {
+    display: flex;
+  
+}
+
+@media(max-width: 400px) {
+  .sidebar{
+    width: 100%;
+  }
+
+
+}
+
 
 @keyframes appear {
   from {

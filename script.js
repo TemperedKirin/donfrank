@@ -1,14 +1,28 @@
 const navbar = document.querySelector(".navbar");
 window.addEventListener("scroll", fixNav);
+window.addEventListener("resize", fixNav);
+
+fixNav();
 
 function fixNav() {
-  if (window.scrollY > navbar.offsetHeight + 150) {
+  if (window.innerWidth <= 800 || window.scrollY > navbar.offsetHeight + 150) {
     navbar.classList.add('active');
   } else {
     navbar.classList.remove('active');
   }
 }
 
+function showSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.style.display = 'flex';
+
+}
+
+function hideSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.style.display = 'none';
+
+}
 // Carousel Logic
 const nextDom = document.getElementById('next');
 const prevDom = document.getElementById('prev');
